@@ -1,0 +1,27 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light py-2 px-md-5" [ngClass]="[headerColor]"  (scroll)="onWindowScroll($event);">
+    <a class="ml-md-5 navbar-brand" href="#">
+        <img src="{{header.appLogo}}" width="150" height="45" alt="">
+    </a>
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ml-lg-5 mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="#">DELIVERING TO: {{header.address}} 
+                    <span style="padding-bottom:-5px;">
+                        <i class="material-icons">location_on</i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mr-md-5">
+            <li class="nav-item mx-md-1" *ngFor="let nav of header.navElements">
+                <a class="nav-link text-white link" href="#">{{nav.name}}</a>
+            </li>
+            <li class="nav-item mx-md-1">
+                <a class="nav-link text-white" href="#">
+                    <i class="fa fa-motorcycle" style="font-size:18px"></i>
+                    <span class='badge badge-warning' id='lblCartCount'> {{header.cartItems}} </span>
+                </a>
+            </li>
+        </ul>
+    </div> 
+</nav>

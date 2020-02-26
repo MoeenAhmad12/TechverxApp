@@ -1,0 +1,32 @@
+{
+    "appLogo":"assets/Images/AppLogo.png",
+    "address":"355,Block R Phase 2 Johar Town..",
+    "cartLogo":"shopping_cart",
+    "cartItems":5,
+    "navElements":[
+        {
+            "name":"Home",
+            "route":"home"
+        },
+        {
+            "name":"Category",
+            "route":"category"
+        },
+        {
+            "name":"Menu",
+            "route":"menu"
+        },
+        {
+            "name":"News",
+            "route":"news"
+        },
+        {
+            "name":"About",
+            "route":"about"
+        },
+        {
+            "name":"Home",
+            "route":"home"
+        }
+    ]
+}
