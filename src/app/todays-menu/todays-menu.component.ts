@@ -1,5 +1,7 @@
 import { Component, OnInit ,HostListener } from '@angular/core';
+import {MatDialog, MatDialogRef,MatDialogConfig , MAT_DIALOG_DATA} from '@angular/material/dialog';
 
+import { ChooseItemsDialogComponent } from '../choose-items-dialog/choose-items-dialog.component';
 @Component({
   selector: 'app-todays-menu',
   templateUrl: './todays-menu.component.html',
@@ -8,62 +10,62 @@ import { Component, OnInit ,HostListener } from '@angular/core';
 export class TodaysMenuComponent implements OnInit {
   CAROUSEL_BREAKPOINT = 768;
   carouselDisplayMode = 'multiple';
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   cards = [
     {
       title: 'Card Title 1',
       description: 'Itallian B.M.T 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu1.jpg'
     },
     {
       title: 'Card Title 2',
       description: 'Bar B Q Chicken 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu2.jpg'
     },
     {
       title: 'Card Title 3',
       description: 'Veggie Delight 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu3.jpg'
     },
     {
       title: 'Card Title 4',
       description: 'Itallian B.M.T 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu4.jpg'
     },
     {
       title: 'Card Title 5',
       description: 'Veggie Delight 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu5.jpg'
     },
     {
       title: 'Card Title 6',
       description: 'Bar B Q Chicken 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu1.jpg'
     },
     {
       title: 'Card Title 7',
       description: 'Itallian B.M.T 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu5.jpg'
     },
     {
       title: 'Card Title 8',
       description: 'Bar B Q Chicken 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu1.jpg'
     },
     {
       title: 'Card Title 9',
       description: 'Veggie Delight 12',
       buttonText: 'Add To Cart',
-      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+      img: 'assets/Images/TodaysMenu3.jpg'
     },
   ];
   slides: any = [[]];
@@ -82,6 +84,26 @@ export class TodaysMenuComponent implements OnInit {
       this.carouselDisplayMode = 'multiple';
     }
   }
+  openDialog(item:any) {
+    console.log(item);
+    const dialogConfig = new MatDialogConfig();
+    let dialogRef=this.dialog.open(ChooseItemsDialogComponent, {
+      width: '70%',
+    
+      data: {
+        "cartItemsCount":1,
+        "head":item.description,
+        "Breads":["Wheat Spesica","Honay Oet","Wheat","Italian","Parmesan Oregano"],
+        "Veggis":["Lettuce","Tomato","Pickles","Jalpeno","Onion","Olives"],
+        "Sauces":["South West Chalpeot","Thousand Iceland","BBQ Sauce","Musterd Sauce","Chilli Sauce","Olive Oil","Honey Mustard"],
+        "Cheese":["With Cheese","Without Cheese"]
+      }
+    });
+    dialogRef.afterClosed().subscribe(value => {
+      console.log(`Dialog sent:`); 
+    });
+  }
+  
   @HostListener('window:resize')
   onWindowResize() {
     if (window.innerWidth <= this.CAROUSEL_BREAKPOINT) {

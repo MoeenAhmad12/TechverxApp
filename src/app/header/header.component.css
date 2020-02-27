@@ -36,3 +36,10 @@
 .origional{
     background:rgb(37,112,47)
 }
+
+.animate {
+	transition: transform 0.5s;
+}
+.animate:hover{
+  transform: translate(0px, -10px);
+  }

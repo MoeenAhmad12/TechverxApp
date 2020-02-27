@@ -12,7 +12,24 @@ import { HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { HomeComponent } from './home/home.component';
-import { TodaysMenuComponent } from './todays-menu/todays-menu.component'
+import { MatDialogModule,MatDialog ,MatDialogRef} from '@angular/material/dialog';
+import { TodaysMenuComponent } from './todays-menu/todays-menu.component';
+import { ChooseItemsDialogComponent } from './choose-items-dialog/choose-items-dialog.component';
+import { MatInputModule,  } from '@angular/material/input';
+import { MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
+import { QuickListComponent } from './quick-list/quick-list.component';
+import { PlatterComponent } from './platter/platter.component';
+import { SaladComponent } from './salad/salad.component';
+import { DealsComponent } from './deals/deals.component';
+import { ComboComponent } from './combo/combo.component';
+import { FootLongComponent } from './foot-long/foot-long.component';
+import { SixInchComponent } from './six-inch/six-inch.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,17 +39,29 @@ import { TodaysMenuComponent } from './todays-menu/todays-menu.component'
     FooterComponent,
     SliderComponent,
     HomeComponent,
-    TodaysMenuComponent
+    TodaysMenuComponent,
+    ChooseItemsDialogComponent,
+    QuickListComponent,
+    PlatterComponent,
+    SaladComponent,
+    DealsComponent,
+    ComboComponent,
+    FootLongComponent,
+    SixInchComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    MatDialogModule,
+    
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
