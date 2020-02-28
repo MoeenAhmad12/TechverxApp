@@ -9,6 +9,7 @@ import { DealsComponent } from './deals/deals.component';
 import { SixInchComponent } from './six-inch/six-inch.component';
 import { FootLongComponent } from './foot-long/foot-long.component';
 import { ComboComponent } from './combo/combo.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 const routes: Routes = [
@@ -16,12 +17,14 @@ const routes: Routes = [
   {path:'register/login',component:LogInComponent},
   {path:'',component:HomeComponent},
   {path:'register',component:RegisterComponent},
-  {path:'platter',component:PlatterComponent},
-  {path:'salad',component:SaladComponent},
-  {path:'deals',component:DealsComponent},
-  {path:'sixinch',component:SixInchComponent},
-  {path:'footlong',component:FootLongComponent},
-  {path:'combo',component:ComboComponent}
+  {path:'category',component:CategoriesComponent},
+  {path:'category/platter',component:PlatterComponent},
+  {path:'category/salad',component:SaladComponent},
+  {path:'category/deals',component:DealsComponent},
+  {path:'category/sixinch',component:SixInchComponent},
+  {path:'category/footlong',component:FootLongComponent},
+  {path:'category/combo',component:ComboComponent},
+  {path:'category/category',component:CategoriesComponent},
 ];
 
 @NgModule({

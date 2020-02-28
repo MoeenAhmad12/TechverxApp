@@ -29,6 +29,7 @@ import { DealsComponent } from './deals/deals.component';
 import { ComboComponent } from './combo/combo.component';
 import { FootLongComponent } from './foot-long/foot-long.component';
 import { SixInchComponent } from './six-inch/six-inch.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { SixInchComponent } from './six-inch/six-inch.component';
     ComboComponent,
     FootLongComponent,
     SixInchComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
