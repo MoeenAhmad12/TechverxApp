@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HeaderServiceService } from '../header-service.service';
+import {Slider} from '../slider';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {  
-  sliderItems:string[]=["assets/Images/Slider1.png","assets/Images/Slider2.png"];
-  constructor() { }
+  sliderItems:Slider;
+  constructor(private footLongService:HeaderServiceService) { }
 
   ngOnInit(): void {
+    
+    console.log(this.footLongService.getSlider().subscribe(data=>this.sliderItems=data));
+    
   }
 
 }

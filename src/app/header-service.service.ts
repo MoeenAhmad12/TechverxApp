@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Footer } from './footer';
 import { Category } from './category';
 import {FootLong} from './footLong'
+import { Slider } from './slider';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,7 @@ export class HeaderServiceService {
   private footerUrl="/assets/data/footer.json";
   private categoriesUrl="/assets/data/categories.json";
   private footLongUrl="/assets/data/footLong.json";
+  private sliderUrl="/assets/data/slider.json";
   constructor(private http:HttpClient) { }
 
   getHeader():Observable<Header>{
@@ -26,5 +28,8 @@ export class HeaderServiceService {
   }
   getFootLong():Observable<FootLong>{
     return this.http.get<FootLong>(this.footLongUrl);
+  }
+  getSlider():Observable<Slider>{
+    return this.http.get<Slider>(this.sliderUrl);
   }
 }
