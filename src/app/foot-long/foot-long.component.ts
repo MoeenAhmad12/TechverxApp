@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {FootLong} from '../footLong'
+import { HeaderServiceService } from '../header-service.service';
 @Component({
   selector: 'app-foot-long',
   templateUrl: './foot-long.component.html',
@@ -7,65 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FootLongComponent implements OnInit {
   
-  footLong = [
-    {
-      title: 'Itallian B.M.T 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu1.jpg'
-    },
-    {
-      title: 'Bar B Q Chicken 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu2.jpg'
-    },
-    {
-      title: 'Veggie Delight 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu3.jpg'
-    },
-    {
-      title: 'Itallian B.M.T 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu4.jpg'
-    },
-    {
-      title: 'Veggie Delight 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu5.jpg'
-    },
-    {
-      title: 'Bar B Q Chicken 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu1.jpg'
-    },
-    {
-      title: 'Itallian B.M.T 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu5.jpg'
-    },
-    {
-      title: 'Bar B Q Chicken 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu1.jpg'
-    },
-    {
-      title: 'Veggie Delight 12',
-      description: 'Piled with shripso, calama, calms, mussles, surimi.',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu3.jpg'
-    },
-  ];
-  constructor() { }
+  footLong :FootLong;
+ 
+  constructor(private footLongService:HeaderServiceService) { }
 
   ngOnInit(): void {
+    
+    this.footLongService.getFootLong().subscribe(data=>this.footLong=data);
   }
 
 }

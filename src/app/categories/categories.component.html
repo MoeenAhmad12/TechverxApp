@@ -1,7 +1,7 @@
 
 <div class="container pt-3 px-5">
     <div class="row">
-        <a class="col-md-3 px-1 py-3 text-dark" [routerLink]="card.link" *ngFor="let card of footLong">
+        <a class="col-md-3 px-1 py-3 text-dark" [routerLink]="card.link" *ngFor="let card of categoryList">
             <mdb-card class="boxshadow mx-3 bg-gray">
                 <img [src]="card.img" width="100%" height="100px"alt="Card image cap" class="pt-1 px-4">
                 <mdb-card-body>

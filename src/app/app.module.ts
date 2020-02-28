@@ -30,6 +30,9 @@ import { ComboComponent } from './combo/combo.component';
 import { FootLongComponent } from './foot-long/foot-long.component';
 import { SixInchComponent } from './six-inch/six-inch.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { FeatureComponent } from './feature/feature.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { CategoriesComponent } from './categories/categories.component';
     FootLongComponent,
     SixInchComponent,
     CategoriesComponent,
+    FeatureComponent,
+    CartComponent,
+    CheckOutComponent,
   ],
   imports: [
     BrowserModule,
