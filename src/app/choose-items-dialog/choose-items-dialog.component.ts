@@ -15,7 +15,7 @@ export class ChooseItemsDialogComponent implements OnInit {
     selectedSaucesList:any[]=[];
     selectedViggisList:any[]=[];
     selectedCheese:string="";
-    cartItemsCount:number;
+    cartItemsCount:number=1;
     breads:string[];
   onViggisChange(value){
     this.selectedViggisList.push(value);
@@ -54,6 +54,9 @@ export class ChooseItemsDialogComponent implements OnInit {
     "price":100,
     "totalPrice":100 * this.cartItemsCount,
   });
+
+  
+
   }
 
 }

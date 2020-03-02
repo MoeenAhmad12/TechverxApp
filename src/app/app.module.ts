@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { MatDialogModule,MatDialog ,MatDialogRef} from '@angular/material/dialog';
 import { TodaysMenuComponent } from './todays-menu/todays-menu.component';
 import { ChooseItemsDialogComponent } from './choose-items-dialog/choose-items-dialog.component';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { MatInputModule,  } from '@angular/material/input';
 import { MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -67,6 +68,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
     HttpClientModule,
     MDBBootstrapModule,
     MatDialogModule,
+    ScrollToModule.forRoot(),
     
   ],
   
