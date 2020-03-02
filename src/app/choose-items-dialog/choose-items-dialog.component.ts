@@ -1,5 +1,6 @@
 import { Component, OnInit,Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { HeaderServiceService } from '../header-service.service';
 
 @Component({
   selector: 'app-choose-items-dialog',
@@ -8,13 +9,27 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class ChooseItemsDialogComponent implements OnInit {
   
-  constructor( public dialogRef: MatDialogRef<ChooseItemsDialogComponent>,
+  constructor( private cartService:HeaderServiceService,public dialogRef: MatDialogRef<ChooseItemsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
-
+    selecteBread:string="";
+    selectedSaucesList:any[]=[];
+    selectedViggisList:any[]=[];
+    selectedCheese:string="";
     cartItemsCount:number;
     breads:string[];
+  onViggisChange(value){
+    this.selectedViggisList.push(value);
+   }
+   onBreadChange(value){
+     this.selecteBread=value;
+  }
+  onSauceChange(value){
+    this.selectedSaucesList.push(value);
+  }
+  onCheeseChange(value){
+    this.selectedCheese=value;
+ }
   ngOnInit(): void {
-    console.log(this.data.head);
     this.breads=this.data.Breads;
     this.cartItemsCount=this.data.cartItemsCount;
   }
@@ -27,5 +42,19 @@ export class ChooseItemsDialogComponent implements OnInit {
       this.cartItemsCount=this.cartItemsCount-1;
     }
   }
+  onClose(): void {
+    this.cartService.incrementCartItemCount();
+   this.dialogRef.close({
+    "itemName":this.data.head,
+    "cartItemsCount":this.cartItemsCount,
+    "selecteBread":this.selecteBread,
+    "selectedViggisList":this.selectedViggisList,
+    "selectedSaucesList":this.selectedSaucesList,
+    "selectedCheese":this.selectedCheese,
+    "price":100,
+    "totalPrice":100 * this.cartItemsCount,
+  });
+  }
+
 }
 

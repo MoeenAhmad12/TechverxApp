@@ -1,0 +1,10 @@
+.animate {
+    transition: transform 0.5s;
+    border-radius: 50px;
+}
+
+.animate:hover{
+  transform: translate(0px, -5px);
+  background: #d9534f;
+
+  }

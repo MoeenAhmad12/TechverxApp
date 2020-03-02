@@ -10,6 +10,7 @@ import { SixInchComponent } from './six-inch/six-inch.component';
 import { FootLongComponent } from './foot-long/foot-long.component';
 import { ComboComponent } from './combo/combo.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,8 @@ const routes: Routes = [
   {path:'category/footlong',component:FootLongComponent},
   {path:'category/combo',component:ComboComponent},
   {path:'category/category',component:CategoriesComponent},
+  {path:'cart',component:CartComponent},
+  {path:'cart/category',component:CategoriesComponent},
 ];
 
 @NgModule({

@@ -9,12 +9,12 @@ import { HostListener } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   header:Header;
+  cartCount:number=0;
   headerColor:string="origional";
   constructor(private headerService:HeaderServiceService) { }
 
   ngOnInit(): void {
     console.log(this.headerService.getHeader().subscribe(data=>this.header=data));
-    
   }
   @HostListener('window:scroll', ['$event'])
 

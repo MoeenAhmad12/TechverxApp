@@ -1,1 +1,29 @@
-<p>cart works!</p>
+<div class="container pt-5">
+    <div class="row pt-5">
+        <table class="table">
+            <thead class="border"> 
+              <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr class="border" *ngFor="let item of cartItems">
+                    <td>{{item.itemName}}</td>
+                    <td>{{item.cartItemsCount}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.totalPrice}}</td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="row py-5 d-flex justify-content-end">
+        <div class="mx-3">
+            <a class="btn btn-warning shadow text-white animate rounded-pill" routerLink="category" style="padding:12px 20px;">Add More</a>
+        </div><div class="">
+            <button class="btn btn-warning shadow text-white animate rounded-pill" style="padding:12px 20px;">Proceed To CheckOut</button>
+        </div>
+    </div>
+</div>

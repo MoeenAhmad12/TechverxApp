@@ -1,7 +1,8 @@
 import { Component, OnInit ,HostListener } from '@angular/core';
 import {MatDialog, MatDialogRef,MatDialogConfig , MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import {DialogResult} from '../dialogResult';
 import { ChooseItemsDialogComponent } from '../choose-items-dialog/choose-items-dialog.component';
+import { HeaderServiceService } from '../header-service.service';
 @Component({
   selector: 'app-todays-menu',
   templateUrl: './todays-menu.component.html',
@@ -10,7 +11,8 @@ import { ChooseItemsDialogComponent } from '../choose-items-dialog/choose-items-
 export class TodaysMenuComponent implements OnInit {
   CAROUSEL_BREAKPOINT = 768;
   carouselDisplayMode = 'multiple';
-  constructor(public dialog: MatDialog) { }
+  result:DialogResult;
+  constructor(public dialog: MatDialog,private cartService:HeaderServiceService) { }
 
   cards = [
     {
@@ -85,8 +87,6 @@ export class TodaysMenuComponent implements OnInit {
     }
   }
   openDialog(item:any) {
-    console.log(item);
-    const dialogConfig = new MatDialogConfig();
     let dialogRef=this.dialog.open(ChooseItemsDialogComponent, {
       width: '70%',
     
@@ -100,8 +100,10 @@ export class TodaysMenuComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(value => {
-      console.log(`Dialog sent:`); 
+      this.result=value;
+      this.cartService.addItemToCart(this.result);
     });
+    
   }
   
   @HostListener('window:resize')

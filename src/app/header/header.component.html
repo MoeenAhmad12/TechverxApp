@@ -17,9 +17,9 @@
                 <a class="nav-link text-white link" [routerLink]="nav.route">{{nav.name}}</a>
             </li>
             <li class="nav-item mx-md-1">
-                <a class="nav-link text-white" href="#">
+                <a class="nav-link text-white" routerLink="cart">
                     <i class="fa fa-motorcycle" style="font-size:18px"></i>
-                    <span class='badge badge-warning' id='lblCartCount'> {{header.cartItems}} </span>
+                    <span class='badge badge-warning' id='lblCartCount' [(ngModel)]="cartCount"> {{cartCount}} </span>
                 </a>
             </li>
         </ul>
