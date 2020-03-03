@@ -59,7 +59,7 @@
                         </div>                        
                     </div>
                 </div>
-                <button type="submit" [disabled]="!profileForm.valid"class="btn btn-warning mt-md-4">Register</button>
+                <button type="submit" (click)="register()" [disabled]="!profileForm.valid"class="btn btn-warning mt-md-4">Register</button>
                 <div class="text-white" style="float: right;margin-top: 80px;">
                     Already Have an Account? <a class="text-warning" routerLink="login">Logn In</a>
                 </div>

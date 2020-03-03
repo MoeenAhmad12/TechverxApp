@@ -24,6 +24,9 @@ export class RegisterComponent implements OnInit {
   FormGroup(arg0: { firstName: FormControl; lastName: FormControl; }) {
     throw new Error("Method not implemented.");
   }
+  register(){
+    console.log(this.profileForm);
+  }
   get firstName() { return this.profileForm.get('firstName'); }
   get lastName() { return this.profileForm.get('lastName'); }
   get email() { return this.profileForm.get('email'); }
