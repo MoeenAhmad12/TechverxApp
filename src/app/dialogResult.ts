@@ -1,4 +1,5 @@
 export interface DialogResult{
+    itemImage:string
     itemName:string
     selecteBread:string
     selectedSaucesList:any[];

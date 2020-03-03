@@ -21,7 +21,7 @@
                 <p><span class="text-warning d-flex justify-content-center pb-2"> _______</span></p>
                 <p class="d-flex justify-content-center pb-2" style="font-family: cursive">{{card.description}}</p>
                 <div class="d-flex justify-content-center">
-                  <button class="btn btn-warning btn-rounded" ><span class="pr-2"><i [class]="card.icon"></i></span>Add To Cart</button>
+                  <button class="btn btn-warning btn-rounded" (click)="openDialog(card)"><span class="pr-2"><i [class]="card.icon"></i></span>Add To Cart</button>
                 </div>
               </mdb-card-body>
             </mdb-card>

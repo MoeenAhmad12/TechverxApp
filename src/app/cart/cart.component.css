@@ -8,3 +8,15 @@
   background: #d9534f;
 
   }
+  .btn-rounded{
+    background-color: transparent;
+    
+    border: 1px solid gray;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50px;
+  } 
+  .pl:focus{
+    border: none;
+  }

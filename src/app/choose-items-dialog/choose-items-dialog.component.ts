@@ -45,6 +45,7 @@ export class ChooseItemsDialogComponent implements OnInit {
   onClose(): void {
     this.cartService.incrementCartItemCount();
    this.dialogRef.close({
+    "itemImage":this.data.itemImage,
     "itemName":this.data.head,
     "cartItemsCount":this.cartItemsCount,
     "selecteBread":this.selecteBread,
@@ -54,9 +55,6 @@ export class ChooseItemsDialogComponent implements OnInit {
     "price":100,
     "totalPrice":100 * this.cartItemsCount,
   });
-
-  
-
   }
 
 }

@@ -13,9 +13,17 @@
             </li>
         </ul>
         <ul class="navbar-nav mr-md-5">
-            <li class="nav-item mx-md-1" *ngFor="let nav of header.navElements">
-                <a class="nav-link text-white link" [routerLink]="nav.route">{{nav.name}}</a>
-            </li>
+            <div class="dropdown nav-item mx-md-1" *ngFor="let item of header.navElements; let i=index"> 
+                <a  [routerLink]="item.route"  class="nav-link text-white link " data-toggle="dropdown">
+                    {{item.name}}
+                </a>
+                <div *ngIf="item.subitem">
+                    <div class="dropdown-menu mt-4 px-1 customDropdown"style="border:none">
+                    <a class="dropdown-item py-2 link bg-transparent"  *ngFor="let sub of item.subitem" [routerLink]="sub.route">{{sub.name}}</a>
+                    </div>
+                </div>
+                
+              </div>
             <li class="nav-item mx-md-1">
                 <a class="nav-link text-white" routerLink="cart">
                     <i class="fa fa-motorcycle" style="font-size:18px"></i>

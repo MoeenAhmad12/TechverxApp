@@ -92,6 +92,7 @@ export class TodaysMenuComponent implements OnInit {
     
       data: {
         "cartItemsCount":1,
+        "itemImage":item.img,
         "head":item.description,
         "Breads":["Wheat Spesica","Honay Oet","Wheat","Italian","Parmesan Oregano"],
         "Veggis":["Lettuce","Tomato","Pickles","Jalpeno","Onion","Olives"],

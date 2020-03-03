@@ -14,7 +14,32 @@
         },
         {
             "name":"Menu",
-            "route":"menu"
+            "subitem":[
+                {
+                    "name":"Deals",
+                    "route":"category/deals"
+                },
+                {
+                    "name":"Combo",
+                    "route":"category/combo"
+                },
+                {
+                    "name":"Salad",
+                    "route":"category/salad"
+                },
+                {
+                    "name":"6Inch",
+                    "route":"category/sixinch"
+                },
+                {
+                    "name":"FootLong",
+                    "route":"category/footlong"
+                },
+                {
+                    "name":"Platter",
+                    "route":"category/platter"
+                }
+              ]
         },
         {
             "name":"News",
@@ -23,10 +48,6 @@
         {
             "name":"About",
             "route":"about"
-        },
-        {
-            "name":"Home",
-            "route":"home"
         }
     ]
 }
