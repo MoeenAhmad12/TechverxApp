@@ -1,4 +1,4 @@
-<h1 class="d-flex justify-content-center font-weight-bold my-5 "style="font-family: bahnschrift;font-size:40px">Todays Delicious Menu</h1>
+<h1 class="d-flex justify-content-center font-weight-bold my-5 "style="font-family: bahnschrift;font-size:40px">{{title}}</h1>
 <mdb-carousel [animation]="'slide'" [ngSwitch]="carouselDisplayMode" [interval]=" '0' " [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'" [type]="'carousel-thumbnails'"[animation]="'slide'">
     <ng-container *ngSwitchCase="'single'">
       <mdb-carousel-item *ngFor="let card of cards" class="px-5">

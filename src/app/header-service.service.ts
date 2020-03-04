@@ -19,10 +19,14 @@ export class HeaderServiceService {
   private footLongUrl="/assets/data/footLong.json";
   private sliderUrl="/assets/data/slider.json";
   private todaysmenuUrl="/assets/data/todaysmenulist.json";
+  private featuresUrl="/assets/data/feature.json";
+  private quicklistUrl="/assets/data/quicklist.json";
   private cartItemsCount=0;
   private cartItems:DialogResult[]=[];
   constructor(private http:HttpClient) { }
-
+  getFeature():Observable<any>{
+    return this.http.get<any>(this.featuresUrl);
+  }
   getHeader():Observable<Header>{
     return this.http.get<Header>(this.headerUrl);
   }
@@ -53,5 +57,8 @@ export class HeaderServiceService {
   }
   getCartItem():DialogResult[]{
     return this.cartItems;
+  }
+  getQuickList():Observable<any>{
+    return this.http.get<any>(this.quicklistUrl);
   }
 }

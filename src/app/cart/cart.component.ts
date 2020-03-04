@@ -14,9 +14,8 @@ export class CartComponent implements OnInit {
   cartItems:DialogResult[];
   count:number=0;
   result:DialogResult;
-  constructor(private cartItemCountService:ItemsCountService,private headerService:HeaderServiceService,public dialog: MatDialog) { 
-    
-  }
+  title:string="Cart";
+  constructor(private cartItemCountService:ItemsCountService,private headerService:HeaderServiceService,public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.cartItems=this.headerService.getCartItem();

@@ -11,8 +11,7 @@ export class SliderComponent implements OnInit {
   constructor(private footLongService:HeaderServiceService) { }
 
   ngOnInit(): void {
-    
-    console.log(this.footLongService.getSlider().subscribe(data=>this.sliderItems=data));
+  this.footLongService.getSlider().subscribe(data=>this.sliderItems=data);
     
   }
 

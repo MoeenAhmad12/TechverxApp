@@ -46,10 +46,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartItemCountService.count.subscribe(data=>this.cartCount=data);
-    this.headerService.getHeader().subscribe(
-      data=>this.header=data
-      );
-    
+    this.headerService.getHeader().subscribe(data=>this.header=data);
   }
   setroute(index){
     if(this.header.navElements[index].route=="")

@@ -11,72 +11,12 @@ import { ItemsCountService } from '../items-count.service';
   styleUrls: ['./todays-menu.component.css']
 })
 export class TodaysMenuComponent implements OnInit {
+  title:string="Todays Delicious Menu";
   CAROUSEL_BREAKPOINT = 768;
   carouselDisplayMode = 'multiple';
   result:DialogResult;
-  constructor(private cartItemCountService:ItemsCountService,public dialog: MatDialog,private cartService:HeaderServiceService) { 
-    this.setCard();
-    }
-    setCard(){
-      this.cartService.getTodaysMenuList().subscribe(data=>this.card=data)
-    }
-    card:TodaysMenu[]
-  cards = [
-    {
-      title: 'Card Title 1',
-      description: 'Itallian B.M.T 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu1.jpg'
-    },
-    {
-      title: 'Card Title 2',
-      description: 'Bar B Q Chicken 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu2.jpg'
-    },
-    {
-      title: 'Card Title 3',
-      description: 'Veggie Delight 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu3.jpg'
-    },
-    {
-      title: 'Card Title 4',
-      description: 'Itallian B.M.T 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu4.jpg'
-    },
-    {
-      title: 'Card Title 5',
-      description: 'Veggie Delight 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu5.jpg'
-    },
-    {
-      title: 'Card Title 6',
-      description: 'Bar B Q Chicken 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu1.jpg'
-    },
-    {
-      title: 'Card Title 7',
-      description: 'Itallian B.M.T 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu5.jpg'
-    },
-    {
-      title: 'Card Title 8',
-      description: 'Bar B Q Chicken 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu1.jpg'
-    },
-    {
-      title: 'Card Title 9',
-      description: 'Veggie Delight 12',
-      buttonText: 'Add To Cart',
-      img: 'assets/Images/TodaysMenu3.jpg'
-    },
-  ];
+  cards:TodaysMenu[]=[];
+  constructor(private cartItemCountService:ItemsCountService,public dialog: MatDialog,private cartService:HeaderServiceService) {}
   slides: any = [[]];
   chunk(arr, chunkSize) {
     let R = [];
@@ -86,12 +26,13 @@ export class TodaysMenuComponent implements OnInit {
     return R;
   }
   ngOnInit() {
+    this.cartService.getTodaysMenuList().subscribe(data=>{this.cards=data
     this.slides = this.chunk(this.cards, 3);
     if (window.innerWidth <= this.CAROUSEL_BREAKPOINT) {
       this.carouselDisplayMode = 'single';
     } else {
       this.carouselDisplayMode = 'multiple';
-    }
+    }})
   }
   openDialog(item:any) {
     let dialogRef=this.dialog.open(ChooseItemsDialogComponent, {
