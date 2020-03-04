@@ -30,6 +30,7 @@ const routes: Routes = [
   {path:'category/combo',component:ComboComponent},
   {path:'category/category',component:CategoriesComponent},
   {path:'cart',component:CartComponent},
+  {path: '**', component: HomeComponent }
 ];
 
 @NgModule({

@@ -45,17 +45,7 @@ export class ChooseItemsDialogComponent implements OnInit {
   onClose(): void {
     this.cartService.incrementCartItemCount();
     
-    this.cartService.addItemToCart({
-      "itemImage":this.data.itemImage,
-      "itemName":this.data.head,
-      "cartItemsCount":this.cartItemsCount,
-      "selecteBread":this.selecteBread,
-      "selectedViggisList":this.selectedViggisList,
-      "selectedSaucesList":this.selectedSaucesList,
-      "selectedCheese":this.selectedCheese,
-      "price":100,
-      "totalPrice":100 * this.cartItemsCount,
-    });
+    
    this.dialogRef.close({
     "itemImage":this.data.itemImage,
     "itemName":this.data.head,

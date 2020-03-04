@@ -3,6 +3,7 @@ import { DialogResult } from '../dialogResult';
 import { HeaderServiceService } from '../header-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ChooseItemsDialogComponent } from '../choose-items-dialog/choose-items-dialog.component';
+import { ItemsCountService } from '../items-count.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ export class CartComponent implements OnInit {
   cartItems:DialogResult[];
   count:number=0;
   result:DialogResult;
-  constructor(private headerService:HeaderServiceService,public dialog: MatDialog) { 
+  constructor(private cartItemCountService:ItemsCountService,private headerService:HeaderServiceService,public dialog: MatDialog) { 
     
   }
 
@@ -26,7 +27,6 @@ export class CartComponent implements OnInit {
     this.cartItems[index].totalPrice=this.cartItems[index].totalPrice+this.cartItems[index].price;
     this.cartItems[index].cartItemsCount=this.cartItems[index].cartItemsCount+1;
     this.setCart();
-    console.log(this.cartItems[index].totalPrice);
   }
   decrementCartItem(index:number){
     if(this.cartItems[index].cartItemsCount>1){
@@ -34,7 +34,6 @@ export class CartComponent implements OnInit {
     this.cartItems[index].cartItemsCount=this.cartItems[index].cartItemsCount-1;
     }
     this.setCart();
-    console.log(this.cartItems[index].totalPrice);
   }
   setCart(){
     this.count=0;
@@ -45,10 +44,11 @@ export class CartComponent implements OnInit {
   }
   deleteCart(index){
     this.cartItems.splice(index, 1);
+    
+    this.cartItemCountService.updatedItemCount(-1);
     this.setCart();
   }
   editCart(item,index) {
-    this.cartItems.splice(index, 1);
     let dialogRef=this.dialog.open(ChooseItemsDialogComponent, {
       width: '70%',
       
@@ -64,6 +64,10 @@ export class CartComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(value => {
       this.result=value;
+      if(this.result.cartItemsCount){ 
+        this.cartItems[index]=value
+      }
+      
     });
     this.setCart();
   }

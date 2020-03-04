@@ -37,6 +37,7 @@ export class DealsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(value => {
       this.result=value;
+      this.footLongService.addItemToCart(this.result);
       this.cartItemCountService.updatedItemCount(1);
     });
     

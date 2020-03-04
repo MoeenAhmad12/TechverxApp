@@ -109,6 +109,7 @@ export class TodaysMenuComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(value => {
       this.result=value;
+      this.cartService.addItemToCart(this.result);
       this.cartItemCountService.updatedItemCount(1);
     });
     
