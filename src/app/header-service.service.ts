@@ -8,6 +8,7 @@ import {FootLong} from './footLong'
 import { Slider } from './slider';
 import {Cart} from './cart';
 import { DialogResult } from './dialogResult';
+import { TodaysMenu } from './todaysmenu';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,7 @@ export class HeaderServiceService {
   private categoriesUrl="/assets/data/categories.json";
   private footLongUrl="/assets/data/footLong.json";
   private sliderUrl="/assets/data/slider.json";
+  private todaysmenuUrl="/assets/data/todaysmenulist.json";
   private cartItemsCount=0;
   private cartItems:DialogResult[]=[];
   constructor(private http:HttpClient) { }
@@ -35,6 +37,9 @@ export class HeaderServiceService {
   }
   getSlider():Observable<Slider>{
     return this.http.get<Slider>(this.sliderUrl);
+  }
+  getTodaysMenuList():Observable<TodaysMenu[]>{
+    return this.http.get<TodaysMenu[]>(this.todaysmenuUrl);
   }
   incrementCartItemCount():void{
     this.cartItemsCount=this.cartItemsCount+1;

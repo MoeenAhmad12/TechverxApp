@@ -14,9 +14,11 @@ import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
-  
-  {path:'register/login',component:LogInComponent},
-  {path:'register/login/',component:LogInComponent},
+  {path:'register/login', redirectTo: '/login', pathMatch: 'full' },
+  {path:'cart/login', redirectTo: '/login', pathMatch: 'full' },
+  {path:'login/register', redirectTo: '/register', pathMatch: 'full' },
+  {path:'cart/category', redirectTo: '/category', pathMatch: 'full' },
+  {path:'login',component:LogInComponent},
   {path:'',component:HomeComponent},
   {path:'register',component:RegisterComponent},
   {path:'category',component:CategoriesComponent},
@@ -28,7 +30,6 @@ const routes: Routes = [
   {path:'category/combo',component:ComboComponent},
   {path:'category/category',component:CategoriesComponent},
   {path:'cart',component:CartComponent},
-  {path:'cart/category',component:CategoriesComponent},
 ];
 
 @NgModule({

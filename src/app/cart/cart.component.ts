@@ -47,8 +47,8 @@ export class CartComponent implements OnInit {
     this.cartItems.splice(index, 1);
     this.setCart();
   }
-  editCart(item) {
-    console.log(item)
+  editCart(item,index) {
+    this.cartItems.splice(index, 1);
     let dialogRef=this.dialog.open(ChooseItemsDialogComponent, {
       width: '70%',
       
@@ -64,7 +64,6 @@ export class CartComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(value => {
       this.result=value;
-      this.headerService.addItemToCart(this.result);
     });
     this.setCart();
   }

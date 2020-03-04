@@ -4,6 +4,7 @@ import {FootLong} from '../footLong';
 import { ChooseItemsDialogComponent } from '../choose-items-dialog/choose-items-dialog.component';
 import { DialogResult } from '../dialogResult';
 import { MatDialog } from '@angular/material/dialog';
+import { ItemsCountService } from '../items-count.service';
 @Component({
   selector: 'app-six-inch',
   templateUrl: './six-inch.component.html',
@@ -14,7 +15,7 @@ export class SixInchComponent implements OnInit {
  
   
   result:DialogResult;
-  constructor(public dialog: MatDialog,private footLongService:HeaderServiceService) { }
+  constructor(private cartItemCountService:ItemsCountService,public dialog: MatDialog,private footLongService:HeaderServiceService) { }
 
   ngOnInit(): void {
     
@@ -37,7 +38,7 @@ export class SixInchComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(value => {
       this.result=value;
-      this.footLongService.addItemToCart(this.result);
+      this.cartItemCountService.updatedItemCount(1);
     });
     
   }

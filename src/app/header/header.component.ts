@@ -3,6 +3,7 @@ import { HeaderServiceService } from '../header-service.service';
 import { Header } from '../header';
 import { HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { ItemsCountService } from '../items-count.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -39,11 +40,12 @@ export class HeaderComponent implements OnInit {
 
   header:Header;
   route:string;
-  cartCount:number=0;
+  cartCount:number;
   headerColor:string="origional";
-  constructor(private router: Router,private headerService:HeaderServiceService) { }
+  constructor(private cartItemCountService:ItemsCountService,private router: Router,private headerService:HeaderServiceService) { }
 
   ngOnInit(): void {
+    this.cartItemCountService.count.subscribe(data=>this.cartCount=data);
     this.headerService.getHeader().subscribe(
       data=>this.header=data
       );

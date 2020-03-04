@@ -22,7 +22,7 @@
                     </td>
                     <td class="py-4">{{item.price}}</td>
                     <td class="py-4">{{item.totalPrice}}</td>
-                    <td class="py-4"> <i class="fas fa-edit text-warning px-3" (click)="editCart(item)"></i><i class="fa fa-trash text-warning" (click)="deleteCart(i)"aria-hidden="true"></i></td>
+                    <td class="py-4"> <i class="fas fa-edit text-warning px-3" (click)="editCart(item,i)"></i><i class="fa fa-trash text-warning" (click)="deleteCart(i)"aria-hidden="true"></i></td>
                 </tr>
             </tbody>
           </table>
@@ -35,7 +35,7 @@
             <a class="btn btn-warning shadow text-white animate rounded-pill" routerLink="category" style="padding:12px 20px;">Add More</a>
         </div>
         <div class="">
-            <button class="btn btn-warning shadow text-white animate rounded-pill" style="padding:12px 20px;">Proceed To CheckOut</button>
+            <button class="btn btn-warning shadow text-white animate rounded-pill" routerLink="login" style="padding:12px 20px;">Proceed To CheckOut</button>
         </div>
     </div>
     

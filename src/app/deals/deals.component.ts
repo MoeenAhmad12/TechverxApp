@@ -4,6 +4,7 @@ import {FootLong} from '../footLong';
 import { DialogResult } from '../dialogResult';
 import { MatDialog } from '@angular/material/dialog';
 import { ChooseItemsDialogComponent } from '../choose-items-dialog/choose-items-dialog.component';
+import { ItemsCountService } from '../items-count.service';
 @Component({
   selector: 'app-deals',
   templateUrl: './deals.component.html',
@@ -14,7 +15,7 @@ export class DealsComponent implements OnInit {
  
 
   result:DialogResult;
-  constructor(public dialog: MatDialog,private footLongService:HeaderServiceService) { }
+  constructor(private cartItemCountService:ItemsCountService,public dialog: MatDialog,private footLongService:HeaderServiceService) { }
 
   ngOnInit(): void {
     
@@ -36,7 +37,7 @@ export class DealsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(value => {
       this.result=value;
-      this.footLongService.addItemToCart(this.result);
+      this.cartItemCountService.updatedItemCount(1);
     });
     
   }

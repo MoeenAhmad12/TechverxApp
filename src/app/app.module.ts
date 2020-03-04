@@ -16,12 +16,6 @@ import { MatDialogModule,MatDialog ,MatDialogRef} from '@angular/material/dialog
 import { TodaysMenuComponent } from './todays-menu/todays-menu.component';
 import { ChooseItemsDialogComponent } from './choose-items-dialog/choose-items-dialog.component';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-import { MatInputModule,  } from '@angular/material/input';
-import { MatTableModule} from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { QuickListComponent } from './quick-list/quick-list.component';
 import { PlatterComponent } from './platter/platter.component';
@@ -34,7 +28,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { FeatureComponent } from './feature/feature.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckOutComponent } from './check-out/check-out.component';
-
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent} from './map/map.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +52,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
     FeatureComponent,
     CartComponent,
     CheckOutComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +65,13 @@ import { CheckOutComponent } from './check-out/check-out.component';
     MDBBootstrapModule,
     MatDialogModule,
     ScrollToModule.forRoot(),
-    
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAbnyhvcUcR8WGCCZYjjNws3ah40XOfoDs'
+      /* apiKey is required, unless you are a 
+      premium customer, in which case you can 
+      use clientId 
+      */
+    })
   ],
   
   providers: [],

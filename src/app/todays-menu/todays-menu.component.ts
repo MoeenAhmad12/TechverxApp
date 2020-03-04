@@ -3,6 +3,8 @@ import {MatDialog, MatDialogRef,MatDialogConfig , MAT_DIALOG_DATA} from '@angula
 import {DialogResult} from '../dialogResult';
 import { ChooseItemsDialogComponent } from '../choose-items-dialog/choose-items-dialog.component';
 import { HeaderServiceService } from '../header-service.service';
+import { TodaysMenu } from '../todaysmenu';
+import { ItemsCountService } from '../items-count.service';
 @Component({
   selector: 'app-todays-menu',
   templateUrl: './todays-menu.component.html',
@@ -12,8 +14,13 @@ export class TodaysMenuComponent implements OnInit {
   CAROUSEL_BREAKPOINT = 768;
   carouselDisplayMode = 'multiple';
   result:DialogResult;
-  constructor(public dialog: MatDialog,private cartService:HeaderServiceService) { }
-
+  constructor(private cartItemCountService:ItemsCountService,public dialog: MatDialog,private cartService:HeaderServiceService) { 
+    this.setCard();
+    }
+    setCard(){
+      this.cartService.getTodaysMenuList().subscribe(data=>this.card=data)
+    }
+    card:TodaysMenu[]
   cards = [
     {
       title: 'Card Title 1',
@@ -102,7 +109,7 @@ export class TodaysMenuComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(value => {
       this.result=value;
-      this.cartService.addItemToCart(this.result);
+      this.cartItemCountService.updatedItemCount(1);
     });
     
   }
