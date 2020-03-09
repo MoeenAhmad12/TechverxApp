@@ -67,6 +67,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "fr":{
+              "aot":true,
+              "outputPath":"dist/TechverxApp/",
+              "i18nFile":"src/locale/messages.fr.xlf",
+              "i18nFormat":"xlf",
+              "i18nLocale":"fr",
+              "i18nMissingTranslation":"error"
             }
           }
         },
@@ -78,6 +86,9 @@
           "configurations": {
             "production": {
               "browserTarget": "TechverxApp:build:production"
+            },
+            "fr":{
+              "browserTarget": "TechverxApp:build:fr"
             }
           }
         },

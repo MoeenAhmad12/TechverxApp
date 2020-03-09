@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build": "ng build --aot --output-path dist/ --base-href /http://localhost:4200/",
+    "build:fr": "ng build --aot --output-path dist/fr --base-href /http://localhost:4200/fr/ --i18nFile=src/locale/messages.fr.xlf --i18nFormat=xlf --i18nLocale=fr"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +19,7 @@
     "@angular/compiler": "~9.0.2",
     "@angular/core": "~9.0.2",
     "@angular/forms": "~9.0.2",
+    "@angular/localize": "^9.0.5",
     "@angular/material": "^9.1.0",
     "@angular/platform-browser": "~9.0.2",
     "@angular/platform-browser-dynamic": "~9.0.2",

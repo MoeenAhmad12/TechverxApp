@@ -13,6 +13,8 @@ import { TodaysMenu } from './todaysmenu';
   providedIn: 'root'
 })
 export class HeaderServiceService {
+  private observableCache: { [key: number]: Observable<Header> } = {};
+  private clubCache: { [key: number]: Header } = {};
   private headerUrl="/assets/data/header.json";
   private footerUrl="/assets/data/footer.json";
   private categoriesUrl="/assets/data/categories.json";
