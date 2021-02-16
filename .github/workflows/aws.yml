@@ -42,3 +42,13 @@ jobs:
       run: npm install
     - name: Run build
       run: npm run build
+    
+    - name: Deploy
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+      run: |
+          aws s3 cp \
+            --recursive \
+            --region ${{ secrets.DEV_AWS_REGION }} \
+            dist s3://${{ secrets.DEV_AWS_BUCKET_NAME }}
