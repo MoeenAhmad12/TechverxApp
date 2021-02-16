@@ -43,7 +43,3 @@ jobs:
     - name: Run build
       run: npm run build
     
-    - name: Deploy
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
