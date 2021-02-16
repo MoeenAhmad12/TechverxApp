@@ -27,6 +27,13 @@ export class CartComponent implements OnInit {
     this.cartItems[index].cartItemsCount=this.cartItems[index].cartItemsCount+1;
     this.setCart();
   }
+   decrementCartItem(index:number){	
+    if(this.cartItems[index].cartItemsCount>1){	
+    this.cartItems[index].totalPrice=this.cartItems[index].totalPrice-this.cartItems[index].price;	
+    this.cartItems[index].cartItemsCount=this.cartItems[index].cartItemsCount-1;	
+    }	
+    this.setCart();	
+  }
   setCart(){
     this.count=0;
     for(var i=0;i<this.cartItems.length;i++)
